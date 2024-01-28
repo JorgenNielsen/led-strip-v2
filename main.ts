@@ -31,10 +31,11 @@ input.onButtonPressed(Button.B, function () {
     for (let index = 0; index <= liste1.length - 1; index++) {
         valA = liste[index]
         valB = liste1[index]
+        serial.writeValue("x", index)
         for (let indeks2 = 0; indeks2 <= 59; indeks2++) {
             strip.setPixelColor(indeks2, valA)
             strip.show()
-            strip.setPixelColor(indeks2, valB)
+            strip.setPixelColor(indeks2 + 1, valB)
             strip.show()
             basic.pause(5)
             strip.clear()
