@@ -12,6 +12,14 @@ input.onButtonPressed(Button.A, function () {
     }
 })
 input.onButtonPressed(Button.B, function () {
+    liste1 = [
+    neopixel.colors(NeoPixelColors.White),
+    neopixel.colors(NeoPixelColors.Indigo),
+    neopixel.colors(NeoPixelColors.Orange),
+    neopixel.colors(NeoPixelColors.Yellow),
+    neopixel.colors(NeoPixelColors.Green),
+    neopixel.colors(NeoPixelColors.Red)
+    ]
     liste = [
     neopixel.colors(NeoPixelColors.Red),
     neopixel.colors(NeoPixelColors.Orange),
@@ -20,9 +28,13 @@ input.onButtonPressed(Button.B, function () {
     neopixel.colors(NeoPixelColors.Indigo),
     neopixel.colors(NeoPixelColors.White)
     ]
-    for (let værdi of liste) {
+    for (let index = 0; index <= liste1.length - 1; index++) {
+        valA = liste[index]
+        valB = liste1[index]
         for (let indeks2 = 0; indeks2 <= 59; indeks2++) {
-            strip.setPixelColor(indeks2, værdi)
+            strip.setPixelColor(indeks2, valA)
+            strip.show()
+            strip.setPixelColor(indeks2, valB)
             strip.show()
             basic.pause(5)
             strip.clear()
@@ -39,7 +51,10 @@ input.onButtonPressed(Button.B, function () {
         strip.clear()
     }
 })
+let valB = 0
+let valA = 0
 let liste: number[] = []
+let liste1: number[] = []
 let counter = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P1, 60, NeoPixelMode.RGB)
