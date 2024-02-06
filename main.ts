@@ -1,4 +1,4 @@
-input.onButtonPressed(Button.A, function () {
+input.onPinPressed(TouchPin.P0, function () {
     strip.showColor(neopixel.colors(NeoPixelColors.Red))
     for (let indeks = 0; indeks <= top; indeks++) {
         counter = indeks
@@ -10,6 +10,15 @@ input.onButtonPressed(Button.A, function () {
         basic.pause(20)
         strip.clear()
     }
+})
+input.onButtonPressed(Button.A, function () {
+    strip.clear()
+    for (let indeks2 = 0; indeks2 <= top; indeks2++) {
+        strip.setPixelColor(indeks2, neopixel.colors(NeoPixelColors.White))
+        strip.setPixelColor(indeks2 + 1, neopixel.colors(NeoPixelColors.Yellow))
+        indeks2 += 1
+    }
+    strip.show()
 })
 input.onButtonPressed(Button.B, function () {
     liste1 = [
@@ -32,10 +41,10 @@ input.onButtonPressed(Button.B, function () {
         valA = liste[index]
         valB = liste1[index]
         serial.writeValue("x", index)
-        for (let indeks2 = 0; indeks2 <= top; indeks2++) {
-            strip.setPixelColor(indeks2, valA)
+        for (let indeks22 = 0; indeks22 <= top; indeks22++) {
+            strip.setPixelColor(indeks22, valA)
             strip.show()
-            strip.setPixelColor(indeks2 + 1, valB)
+            strip.setPixelColor(indeks22 + 1, valB)
             strip.show()
             basic.pause(5)
             strip.clear()
@@ -60,7 +69,6 @@ let liste1: number[] = []
 let counter = 0
 let strip: neopixel.Strip = null
 let top = 0
-top = 180
-music.play(music.createSoundExpression(WaveShape.Noise, 5000, 0, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.UntilDone)
+top = 60
 strip = neopixel.create(DigitalPin.P1, top, NeoPixelMode.RGB)
-strip.showRainbow(1, 360)
+strip.showRainbow(1, 120)
