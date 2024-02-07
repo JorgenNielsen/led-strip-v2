@@ -20,6 +20,12 @@ input.onButtonPressed(Button.A, function () {
     }
     strip.show()
 })
+input.onButtonPressed(Button.AB, function () {
+    strip.clear()
+    strip.showColor(neopixel.hsl(50, 120, 70))
+    strip.showRainbow(1, 120)
+    strip.show()
+})
 input.onButtonPressed(Button.B, function () {
     liste1 = [
     neopixel.colors(NeoPixelColors.White),
@@ -75,5 +81,3 @@ top = 60
 strip = neopixel.create(DigitalPin.P1, top, NeoPixelMode.RGB)
 strip.showColor(neopixel.hsl(50, 120, 70))
 strip.show()
-basic.pause(5000)
-strip.showRainbow(1, 120)
